@@ -196,16 +196,26 @@ function initScrollNavigation() {
         });
     });
     
-    // Hide/show navbar on scroll
+    // Hide/show navbar on scroll + progress bar
+    const scrollProgressBar = document.getElementById('scrollProgressBar');
+    
     window.addEventListener('scroll', () => {
         if (!ticking) {
             requestAnimationFrame(() => {
                 const currentScrollY = window.scrollY;
                 
+                // Navbar hide/show
                 if (currentScrollY > lastScrollY && currentScrollY > 100) {
                     navbar.classList.add('hidden');
                 } else {
                     navbar.classList.remove('hidden');
+                }
+                
+                // Update scroll progress
+                if (scrollProgressBar) {
+                    const windowHeight = document.documentElement.scrollHeight - window.innerHeight;
+                    const scrolled = (currentScrollY / windowHeight) * 100;
+                    scrollProgressBar.style.width = Math.min(scrolled, 100) + '%';
                 }
                 
                 lastScrollY = currentScrollY;

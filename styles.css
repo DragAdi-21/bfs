@@ -1813,3 +1813,23 @@ section {
     cursor: auto;
   }
 }
+
+/* ===== MOBILE OPTIMIZATIONS ===== */
+@media (max-width: 768px) {
+  #particleCanvas {
+    opacity: 0.3;
+  }
+  
+  .cursor-dot, .cursor-outline {
+    display: none;
+  }
+  
+  body {
+    cursor: auto;
+  }
+  
+  /* Hide scroll progress on mobile */
+  .scroll-progress {
+    display: none;
+  }
+}
