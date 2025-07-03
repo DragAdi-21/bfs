@@ -1387,22 +1387,73 @@ section {
     padding: 0 var(--spacing-md);
   }
   
+  /* Enhanced mobile typography */
+  .hero-name {
+    font-size: clamp(2rem, 12vw, 3.5rem);
+    letter-spacing: -0.01em;
+  }
+  
+  .section-title {
+    font-size: clamp(1.8rem, 10vw, 2.5rem);
+    text-align: center;
+  }
+  
+  .section-subtitle {
+    font-size: clamp(0.85rem, 4vw, 1rem);
+    text-align: center;
+  }
+  
+  /* Improve cards for small screens */
   .projects-grid {
     grid-template-columns: 1fr;
+    gap: var(--spacing-md);
   }
   
   .project-card {
     min-width: auto;
+    margin: 0 auto;
+    max-width: 100%;
+  }
+  
+  .glass-card {
+    padding: var(--spacing-lg);
+    margin-bottom: var(--spacing-md);
   }
   
   .skill-tags,
   .project-tech {
     justify-content: center;
+    gap: var(--spacing-xs);
+  }
+  
+  .skill-tag, .tech-tag {
+    font-size: 0.8rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
   }
   
   .contact-method {
     flex-direction: column;
     text-align: center;
+    padding: var(--spacing-md);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 12px;
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .contact-value {
+    font-size: 0.9rem;
+    justify-content: center;
+  }
+  
+  /* Improve button sizes for touch */
+  .cta-primary, .cta-secondary {
+    min-height: 48px;
+    font-size: 1rem;
+  }
+  
+  .project-link {
+    min-height: 40px;
+    font-size: 0.85rem;
   }
 }
 
