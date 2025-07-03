@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
 async function initializeWebsite() {
     // Initialize all components
     initCustomCursor();
-    initParticleTrail();
+    initEnhancedParticleTrail();
     initScrollNavigation();
     initCommandPalette();
     initMobileMenu();
@@ -27,6 +27,9 @@ async function initializeWebsite() {
     initScrollAnimations();
     init3DTilt();
     initMagneticElements();
+    initScrollSnapping();
+    initDynamicTheming();
+    initPerformanceOptimizations();
     
     // Generate dynamic greeting
     await generateDynamicGreeting();
@@ -326,11 +329,40 @@ function initRotatingPhrases() {
     
     if (phrases.length === 0) return;
     
+    // Add technical expertise rotation with smooth transitions
+    const technicalSkills = [
+        'I architect cloud solutions.',
+        'I optimize performance.',
+        'I secure digital systems.',
+        'I innovate with Python.',
+        'I deploy with AWS.',
+        'I automate workflows.',
+        'I debug complex problems.',
+        'I craft AI experiences.',
+        'I design seamless UX.',
+        'I build innovative solutions.'
+    ];
+    
+    // Enhanced rotation with staggered effects
     setInterval(() => {
-        phrases[currentIndex].classList.remove('active');
-        currentIndex = (currentIndex + 1) % phrases.length;
-        phrases[currentIndex].classList.add('active');
-    }, 3000);
+        phrases[currentIndex].style.transform = 'translateY(-100%) scale(0.9)';
+        phrases[currentIndex].style.opacity = '0';
+        
+        setTimeout(() => {
+            phrases[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % phrases.length;
+            phrases[currentIndex].classList.add('active');
+            
+            // Smooth entry animation
+            phrases[currentIndex].style.transform = 'translateY(100%) scale(0.9)';
+            phrases[currentIndex].style.opacity = '0';
+            
+            requestAnimationFrame(() => {
+                phrases[currentIndex].style.transform = 'translateY(0) scale(1)';
+                phrases[currentIndex].style.opacity = '1';
+            });
+        }, 300);
+    }, 2500);
 }
 
 // ===== DYNAMIC GREETING ===== //
